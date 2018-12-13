@@ -7,19 +7,19 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
 -  **Signup:** As a visitor I want to sign up so that I can see what the MET app has to offer.
 -  **Login:** As a visitor I want to log in so that I can check out artworks and add favorites.
 -  **Logout:** As a visitor I want to logout so that no one else can use my account.
--**Menu** As a user, I want a menu so that I can have the option to log out, see my favs and go back to the homepage all in the same place. 
--**Navbar** As a user I want to be able to log out if I am logged in, check my favourites and go back to homepage. 
--**Exhibition Detail Page** as a user I want to see more paintings from the exhibition I chose so that I can add them to my favourites. 
+- **Menu** As a user, I want a menu so that I can have the option to log out, see my favs and go back to the homepage all in the same place. 
+- **Navbar** As a user I want to be able to log out if I am logged in, check my favourites and go back to homepage. 
+- **Exhibition Detail Page** as a user I want to see more paintings from the exhibition I chose so that I can add them to my favourites. 
 - **Create favourites** As a registered user I want to be able to add paintings to my favorites so that I can check them out later.
 -  **List favourites** As a user I want to list my favorite paintings so I can see all of them in one place.
 - **Delete favourites** As a user I want to delete my favourites so that I can just see the paintings I still like.
 
 
 ## Backlog
-**Scan** As a visitor I want to learn more about the artwork in front of me by scanning it and getting its description.
-**Recs** As a user I want to see recommendations based on my favorites.
-**Collections** As a user I want to group my favorites into folders (collections), so I can classify and find them more easily.
-**Desktop version** As a user I want to access the app from a desktop so that I can see my favorites wherever I am.
+- **Scan** As a visitor I want to learn more about the artwork in front of me by scanning it and getting its description.
+- **Recs** As a user I want to see recommendations based on my favorites.
+- **Collections** As a user I want to group my favorites into folders (collections), so I can classify and find them more easily.
+- **Desktop version** As a user I want to access the app from a desktop so that I can see my favorites wherever I am.
 
 # Client
 ## Routes
