@@ -27,7 +27,7 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - HomePageComponent
   - Public
   - Displays current exhibitions
--/user/exhibition/department
+-/user/paintings/department
 - ExhibitionListComponent
 - user is login
 - Displays the list of paintings belonging to that exhibition.
@@ -67,7 +67,7 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Exhibition service
+- Paintings service
  - get all()
   - fav.list()
   - fav.create({user})
@@ -84,13 +84,16 @@ password - Password // required
 favoritesId - Array [id]
 
 ```
-Exhibitions model
+Paintings model
 ```
 ownerId - ObjectId (backlog)
 image - String
 artist - String
 date - String
 department - String
+country - String
+description - String
+audio - String
 ```
 
 ## Routes
@@ -101,10 +104,10 @@ department - String
 | `post` | `/auth/login` | login |
 | `post` | `/auth/signup` | signup |
 | `post` | `/auth/logut` | logout |
-| `post`  | `/api/exhibitions/favorites/:id` | private route for logged in user |
-| `delete`  | `/api/exhibitions/favorites/:id` | private route for logged in user |
-| `get`  | `/api/exhibitions/favorites` | private route for logged in user |
-| `get`  | `/api/exhibitions` | private route for logged in user |
+| `post`  | `/api/paintings/favorites/:id` | private route for logged in user |
+| `delete`  | `/api/paintings/favorites/:id` | private route for logged in user |
+| `get`  | `/api/paintings/favorites` | private route for logged in user |
+| `get`  | `/api/paintings` | private route for logged in user |
 
 
 ## API Endpoints (backend routes)
@@ -138,7 +141,7 @@ department - String
   - user logged in check
   - body: (empty)
   - 204
-- POST /api/exhibitions/favorites/:id
+- POST /api/paintings/favorites/:id
  - user logged in check
   - body:
     - fav.id
@@ -147,7 +150,7 @@ department - String
     - id exists (404)
   - add to favorites if not there yet
   - updates user in session
-- DELETE /api/exhibitions/favorites/:id
+- DELETE /api/paintings/favorites/:id
 -  user logged in check
   - validation
     - id is valid (404)
@@ -155,10 +158,10 @@ department - String
   - body: (empty - the user is already stored in the session)
   - remove from favorites
   - updates user in session
-- GET /api/exhibitions/favorites
+- GET /api/paintings/favorites
 - user logged in check
   - get list
-- GET /api/exhibitions
+- GET /api/paintings
  - user logged in check
 - get list of paintings belonging to that exhibition
 
