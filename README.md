@@ -27,23 +27,23 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - HomePageComponent
   - Public
   - Displays current exhibitions
--/user/paintings/department
+- `/me/paintings/:department`
 - ExhibitionListComponent
 - user is login
 - Displays the list of paintings belonging to that exhibition.
-- `/auth/signup`
+- `/signup`
   - SignupPageComponent
   - anon only
   - signup form
    - link to login
   - navigate to homepage after signup
-- `/auth/login`
+- `/login`
   - LoginPageComponent
   - anon only
   - login form
   - link to signup
   - navigate to homepage after login
-- `user/me/faves`
+- `/me/faves`
   - UserFaveComponent
   - user only
   - shows all favorites
