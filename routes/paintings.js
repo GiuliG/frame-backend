@@ -16,6 +16,16 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
+router.get('/favs', (req, res, next) => {
+  User.findById(req.session.currentUser._id, {favs: 'favs'})
+    .populate('favs')
+    .then((favsList) => {
+      res.status(200);
+      res.json(favsList);
+    })
+    .catch(next)
+})
+
 router.put('/favs/:id', (req, res, next) => {
   const paintingId = req.params.id;
 
