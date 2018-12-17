@@ -30,4 +30,18 @@ router.put('/favs/:id', (req, res, next) => {
   }
 })
 
+router.delete('/favs/:id', (req, res, next) => {
+  const paintingId = req.params.id;
+
+  if (req.session.currentUser) {
+    
+    User.findByIdAndUpdate(req.session.currentUser._id, {$pull: {favs: paintingId}})
+    .then((painting) => {
+      res.status(200);
+      res.json(painting);
+    })
+    .catch(next)
+  }
+})
+
 module.exports = router;
