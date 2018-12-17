@@ -5,21 +5,22 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
 -  **404:** As a visitor I want to know when the page for the artwork I’m looking for doesn’t exist so that I can go somewhere else.
 -**Homepage** As a user I want to check the exhibitions from the MET so that I can know more about them. 
 -  **Signup:** As a visitor I want to sign up so that I can see what the MET app has to offer.
--  **Login:** As a visitor I want to log in so that I can check out artworks and add favorites.
+-  **Login:** As a visitor I want to log in so that I can check out artworks and add favourites.
 -  **Logout:** As a visitor I want to logout so that no one else can use my account.
 - **Menu** As a user, I want a menu so that I can have the option to log out, see my favs and go back to the homepage all in the same place. 
 - **Navbar** As a user I want to be able to log out if I am logged in, check my favourites and go back to homepage. 
 - **Exhibition Detail Page** as a user I want to see more paintings from the exhibition I chose so that I can add them to my favourites. 
-- **Create favourites** As a registered user I want to be able to add paintings to my favorites so that I can check them out later.
+- **Create favourites** As a registered user I want to be able to add paintings to my favourites so that I can check them out later.
 -  **List favourites** As a user I want to list my favorite paintings so I can see all of them in one place.
 - **Delete favourites** As a user I want to delete my favourites so that I can just see the paintings I still like.
 
 
 ## Backlog
 - **Scan** As a visitor I want to learn more about the artwork in front of me by scanning it and getting its description.
-- **Recs** As a user I want to see recommendations based on my favorites.
-- **Collections** As a user I want to group my favorites into folders (collections), so I can classify and find them more easily.
-- **Desktop version** As a user I want to access the app from a desktop so that I can see my favorites wherever I am.
+- **Painting Details** As a user I want to click on a listed painting so that I can see a more detailed view of it and listen to an audio description.
+- **Recs** As a user I want to see recommendations based on my favourites.
+- **Collections** As a user I want to group my favourites into folders (collections), so I can classify and find them more easily.
+- **Desktop version** As a user I want to access the app from a desktop so that I can see my favourites wherever I am.
 
 # Client
 ## Routes
@@ -29,7 +30,7 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - Displays current exhibitions
 - `/me/paintings/:department`
 - ExhibitionListComponent
-- user is login
+- user is logged in
 - Displays the list of paintings belonging to that exhibition.
 - `/signup`
   - SignupPageComponent
@@ -43,22 +44,25 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - login form
   - link to signup
   - navigate to homepage after login
-- `/me/faves`
-  - UserFaveComponent
+- `/me/favs`
+  - FavList Component
   - user only
-  - shows all favorites
-- `/whateveryouwritethatsnotaroute`
+  - shows all favs
+- `*`
   - NotFoundPageComponent
 
 
 ## Components
 - Login:
-  - userFormComponent(email: email, password: password, button: button, onSubmit: function)
+  - userForm component(email: email, password: password, button: button, onSubmit: function)
 - Sign up:
-  - userFormComponent(username: string, email: email, password: password, button: button, onSubmit: function)
-- Favorites list:
-- FaveListComponent (mapped array of fave objects {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
--ExhibitionListComponent (mapped array of exhibitions {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
+  - userForm component(username: string, email: email, password: password, button: button, onSubmit: function)
+- Navbar component (conditional render depending on logged in or anonymous user)
+- ExhibitionList component (mapped array of exhibitions {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
+- favourites list:
+  - FavList component (mapped array of favs {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
+  - PaintingCard component
+  - HeartButton component
 
 ## Services
 - Auth Service
@@ -81,7 +85,7 @@ User model
 username - string // required
 email - Email // required & unique
 password - Password // required
-favoritesId - Array [id]
+favs - Array [paintingId]
 
 ```
 Paintings model
@@ -104,9 +108,9 @@ audio - String
 | `post` | `/auth/login` | login |
 | `post` | `/auth/signup` | signup |
 | `post` | `/auth/logut` | logout |
-| `post`  | `/api/paintings/favorites/:id` | private route for logged in user |
-| `delete`  | `/api/paintings/favorites/:id` | private route for logged in user |
-| `get`  | `/api/paintings/favorites` | private route for logged in user |
+| `post`  | `/api/paintings/favs/:id` | private route for logged in user |
+| `delete`  | `/api/paintings/favs/:id` | private route for logged in user |
+| `get`  | `/api/paintings/favs` | private route for logged in user |
 | `get`  | `/api/paintings` | private route for logged in user |
 
 
@@ -141,14 +145,14 @@ audio - String
   - user logged in check
   - body: (empty)
   - 204
-- PUT /api/paintings/favorites/:id
+- PUT /api/paintings/favs/:id
  - user logged in check
   - body:
     - paintingId
   - validation
     - id is valid (404)
     - id exists (404)
-  - add to favorites if not there yet
+  - add to favs if not there yet
   - updates user in session
 - DELETE /api/paintings/favs/:id
 -  user logged in check
@@ -156,9 +160,9 @@ audio - String
     - id is valid (404)
     - id exists (404)
   - body: (empty - the user is already stored in the session)
-  - remove from favorites
+  - remove from favs
   - updates user in session
-- GET /api/paintings/favorites
+- GET /api/paintings/favs
 - user logged in check
   - get list
 - GET /api/paintings
