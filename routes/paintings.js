@@ -21,7 +21,7 @@ router.put('/favs/:id', (req, res, next) => {
 
   if (req.session.currentUser) {
     
-    User.findByIdAndUpdate(req.session.currentUser._id, {$push: {favs: paintingId}})
+    User.findByIdAndUpdate(req.session.currentUser._id, {$addToSet: {favs: paintingId}})
     .then((painting) => {
       res.status(200);
       res.json(painting);
