@@ -141,16 +141,16 @@ audio - String
   - user logged in check
   - body: (empty)
   - 204
-- POST /api/paintings/favorites/:id
+- PUT /api/paintings/favorites/:id
  - user logged in check
   - body:
-    - fav.id
+    - paintingId
   - validation
     - id is valid (404)
     - id exists (404)
   - add to favorites if not there yet
   - updates user in session
-- DELETE /api/paintings/favorites/:id
+- DELETE /api/paintings/favs/:id
 -  user logged in check
   - validation
     - id is valid (404)
