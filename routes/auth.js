@@ -32,8 +32,8 @@ router.post('/login', (req, res, next) => {
   }
 
   User.findOne({
-      email
-    })
+    email
+  })
     .then((user) => {
       if (!user) {
         return res.status(404).json({
@@ -67,8 +67,8 @@ router.post('/signup', (req, res, next) => {
   }
 
   User.findOne({
-      email
-    }, 'email')
+    email
+  }, 'email')
     .then((userExists) => {
       if (userExists) {
         return res.status(422).json({

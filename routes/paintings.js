@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/favs', (req, res, next) => {
-  User.findById(req.session.currentUser._id, {favs: 'favs'})
+  User.findById(req.session.currentUser._id, { favs: 'favs' })
     .populate('favs')
     .then((favsList) => {
       res.status(200);
@@ -30,13 +30,13 @@ router.put('/favs/:id', (req, res, next) => {
   const paintingId = req.params.id;
 
   if (req.session.currentUser) {
-    
-    User.findByIdAndUpdate(req.session.currentUser._id, {$addToSet: {favs: paintingId}})
-    .then((painting) => {
-      res.status(200);
-      res.json(painting);
-    })
-    .catch(next)
+
+    User.findByIdAndUpdate(req.session.currentUser._id, { $addToSet: { favs: paintingId } })
+      .then((painting) => {
+        res.status(200);
+        res.json(painting);
+      })
+      .catch(next)
   }
 })
 
@@ -44,13 +44,13 @@ router.delete('/favs/:id', (req, res, next) => {
   const paintingId = req.params.id;
 
   if (req.session.currentUser) {
-    
-    User.findByIdAndUpdate(req.session.currentUser._id, {$pull: {favs: paintingId}})
-    .then((painting) => {
-      res.status(200);
-      res.json(painting);
-    })
-    .catch(next)
+
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { favs: paintingId } })
+      .then((painting) => {
+        res.status(200);
+        res.json(painting);
+      })
+      .catch(next)
   }
 })
 
