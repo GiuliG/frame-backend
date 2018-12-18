@@ -9,8 +9,12 @@ const userSchema = new Schema({
   favs: [{
     type: ObjectId, 
     ref: 'Painting'
+  }],
+  scan: [{
+    type: String,
   }]
-}, {
+},
+{
   timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at'

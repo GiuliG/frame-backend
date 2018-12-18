@@ -12,6 +12,8 @@
     "npm": "6.4.1"
   },
   "dependencies": {
+    "@google-cloud/storage": "^2.3.3",
+    "@google-cloud/vision": "^0.23.0",
     "bcrypt": "^3.0.1",
     "body-parser": "~1.18.2",
     "connect-mongo": "^2.0.1",
