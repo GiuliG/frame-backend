@@ -209,7 +209,7 @@ const paintings = [
     date: '1845',
     country: 'US',
     department: 'The American Wing',
-    image: 'https://collectionapi.metmuseum.org/api/collection/v1/iiif/14930/32440/restricted',
+    image: 'https://collectionapi.metmuseum.org/api/collection/v1/iiif/10786/33136/main-image',
     audio: ''
   },
   {
