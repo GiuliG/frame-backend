@@ -45,7 +45,8 @@ router.delete('/favs/:id', (req, res, next) => {
 
   if (req.session.currentUser) {
 
-    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { favs: paintingId } })
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { favs: paintingId } },{new: true})
+      .populate('favs')
       .then((painting) => {
         res.status(200);
         res.json(painting);
@@ -53,5 +54,17 @@ router.delete('/favs/:id', (req, res, next) => {
       .catch(next)
   }
 })
+
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  if (req.session.currentUser) {
+  Painting.findById(id)
+    .then((painting => {
+      res.status(200);
+      res.json(painting);
+    }))
+    .catch(next)
+}
+  });
 
 module.exports = router;
