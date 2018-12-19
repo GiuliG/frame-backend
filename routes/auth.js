@@ -37,7 +37,7 @@ router.post('/login', (req, res, next) => {
     .then((user) => {
       if (!user) {
         return res.status(404).json({
-          error: 'not-found'
+          error: 'user-not-found-or-password-wrong'
         });
       }
       // TODO async bcrypt
@@ -46,7 +46,7 @@ router.post('/login', (req, res, next) => {
         return res.status(200).json(user);
       }
       return res.status(404).json({
-        error: 'not-found'
+        error: 'user-not-found-or-password-wrong'
       });
     })
     .catch(next);
