@@ -13,11 +13,11 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
 - **Create favourites** As a registered user I want to be able to add paintings to my favourites so that I can check them out later.
 -  **List favourites** As a user I want to list my favorite paintings so I can see all of them in one place.
 - **Delete favourites** As a user I want to delete my favourites so that I can just see the paintings I still like.
+- **Painting Details** As a user I want to click on a listed painting so that I can see a more detailed view of it and listen to an audio description.
 
 
 ## Backlog
 - **Scan** As a visitor I want to learn more about the artwork in front of me by scanning it and getting its description.
-- **Painting Details** As a user I want to click on a listed painting so that I can see a more detailed view of it and listen to an audio description.
 - **Recs** As a user I want to see recommendations based on my favourites.
 - **Collections** As a user I want to group my favourites into folders (collections), so I can classify and find them more easily.
 - **Desktop version** As a user I want to access the app from a desktop so that I can see my favourites wherever I am.
@@ -58,6 +58,7 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
 - Sign up:
   - userForm component(username: string, email: email, password: password, button: button, onSubmit: function)
 - Navbar component (conditional render depending on logged in or anonymous user)
+- Menu component
 - ExhibitionList component (mapped array of exhibitions {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
 - favourites list:
   - FavList component (mapped array of favs {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
@@ -77,7 +78,6 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - fav.create({user})
 - fav.delete({user})
 
-
 # Server
 ## Models
 User model
@@ -90,7 +90,6 @@ favs - Array [paintingId]
 ```
 Paintings model
 ```
-ownerId - ObjectId (backlog)
 image - String
 artist - String
 date - String
@@ -180,10 +179,10 @@ audio - String
 ## GitHub
 [Frontend repo] (https://github.com/MarloMorgan/frame-frontend )
 [Backend repo] (https://github.com/MarloMorgan/frame-backend)
-[Try the deployed app] ()
+[Try the deployed app] (https://frame-project-8946c.firebaseapp.com/)
 
 ## Slides
-[Google Slides Presentation] ()
+[Google Slides Presentation](https://docs.google.com/presentation/d/1-BbRsB9EjJGMANPDtiqsqX7PpIYiJnE2XuCOiiN72FE/edit?usp=sharing)
 
 
 
