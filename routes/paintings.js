@@ -28,10 +28,9 @@ router.get('/favs', (req, res, next) => {
 
 router.get('/scan', (req, res, next) => {
   const paintingTitle = req.query.title;
-  
-  Painting.find({ title: `${paintingTitle}` } )
+
+  Painting.find({ title: `${paintingTitle}` })
     .then((result) => {
-      console.log(result)
       res.status(200);
       res.json(result);
     })
@@ -57,7 +56,7 @@ router.delete('/favs/:id', (req, res, next) => {
 
   if (req.session.currentUser) {
 
-    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { favs: paintingId } },{new: true})
+    User.findByIdAndUpdate(req.session.currentUser._id, { $pull: { favs: paintingId } }, { new: true })
       .populate('favs')
       .then((painting) => {
         res.status(200);
@@ -70,13 +69,13 @@ router.delete('/favs/:id', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   const { id } = req.params;
   if (req.session.currentUser) {
-  Painting.findById(id)
-    .then((painting => {
-      res.status(200);
-      res.json(painting);
-    }))
-    .catch(next)
-}
-  });
+    Painting.findById(id)
+      .then((painting => {
+        res.status(200);
+        res.json(painting);
+      }))
+      .catch(next)
+  }
+});
 
 module.exports = router;
