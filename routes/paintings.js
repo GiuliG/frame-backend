@@ -26,6 +26,18 @@ router.get('/favs', (req, res, next) => {
     .catch(next)
 })
 
+router.get('/scan', (req, res, next) => {
+  const paintingTitle = req.query.title;
+  
+  Painting.find({ title: `${paintingTitle}` } )
+    .then((result) => {
+      console.log(result)
+      res.status(200);
+      res.json(result);
+    })
+    .catch(next)
+})
+
 router.put('/favs/:id', (req, res, next) => {
   const paintingId = req.params.id;
 
