@@ -3,11 +3,11 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
 
 ## User Stories
 -  **404:** As a visitor I want to know when the page for the artwork I’m looking for doesn’t exist so that I can go somewhere else.
--**Homepage** As a user I want to check the exhibitions from the MET so that I can know more about them. 
+-  **Homepage** As a user I want to check the exhibitions from the MET so that I can know more about them. 
 -  **Signup:** As a visitor I want to sign up so that I can see what the MET app has to offer.
 -  **Login:** As a visitor I want to log in so that I can check out artworks and add favourites.
 -  **Logout:** As a visitor I want to logout so that no one else can use my account.
-- **Menu** As a user, I want a menu so that I can have the option to log out, see my favs and go back to the homepage all in the same place. 
+-  **Menu** As a user, I want a menu so that I can have the option to log out, see my favs and go back to the homepage all in the same place. 
 - **Navbar** As a user I want to be able to log out if I am logged in, check my favourites and go back to homepage. 
 - **Exhibition Detail Page** as a user I want to see more paintings from the exhibition I chose so that I can add them to my favourites. 
 - **Create favourites** As a registered user I want to be able to add paintings to my favourites so that I can check them out later.
@@ -70,18 +70,18 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
  - ScanForm component
 
 ## Services
-- **Auth Service
+- **Auth Service**
   - auth.login(user)
   - auth.signup(user)
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- **Paintings Service
+- **Paintings Service**
   - get all()
   - fav.list()
   - fav.create({user})
   - fav.delete({user})
-- **Scan Service
+- **Scan Service**
   - scanService.getTextFromImage({imageBase64String}) 
   - scanService.getPaintingFromTitleScan(paintingTitle)
 
@@ -178,19 +178,19 @@ audio - String
 
 
 ## Links
-- **[The Metropolitan Museum of Art Collection API] (https://metmuseum.github.io/)
-- **[Google Vision API] (https://cloud.google.com/vision/)
-- **[React File Base64 Component for Image conversion] (https://github.com/BosNaufal/react-file-base64)
+- **[The Metropolitan Museum of Art Collection API] (https://metmuseum.github.io/)**
+- **[Google Vision API] (https://cloud.google.com/vision/)**
+- **[React File Base64 Component for Image conversion] (https://github.com/BosNaufal/react-file-base64)**
 
 ## Kanban Board
 
 ## GitHub
-- **[Frontend repo] (https://github.com/MarloMorgan/frame-frontend )
-- **[Backend repo] (https://github.com/MarloMorgan/frame-backend)
-- **[Try the deployed app] (https://frame-project-8946c.firebaseapp.com/)
+- **[Frontend repo] (https://github.com/MarloMorgan/frame-frontend)**
+- **[Backend repo] (https://github.com/MarloMorgan/frame-backend)**
+- **[Try the deployed app] (https://frame-project-8946c.firebaseapp.com/)**
 
 ## Slides
-- **[Google Slides Presentation](https://docs.google.com/presentation/d/1-BbRsB9EjJGMANPDtiqsqX7PpIYiJnE2XuCOiiN72FE/edit?usp=sharing)
+- **[Google Slides Presentation](https://docs.google.com/presentation/d/1-BbRsB9EjJGMANPDtiqsqX7PpIYiJnE2XuCOiiN72FE/edit?usp=sharing)**
 
 
 
