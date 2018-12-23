@@ -14,10 +14,9 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
 -  **List favourites** As a user I want to list my favorite paintings so I can see all of them in one place.
 - **Delete favourites** As a user I want to delete my favourites so that I can just see the paintings I still like.
 - **Painting Details** As a user I want to click on a listed painting so that I can see a more detailed view of it and listen to an audio description.
-
+- **Scan** As a visitor I want to learn more about the artwork in front of me by scanning it and getting its description.
 
 ## Backlog
-- **Scan** As a visitor I want to learn more about the artwork in front of me by scanning it and getting its description.
 - **Recs** As a user I want to see recommendations based on my favourites.
 - **Collections** As a user I want to group my favourites into folders (collections), so I can classify and find them more easily.
 - **Desktop version** As a user I want to access the app from a desktop so that I can see my favourites wherever I am.
@@ -48,6 +47,9 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - FavList Component
   - user only
   - shows all favs
+ - `/me/menu`
+  - Menu Component
+  - user only
 - `*`
   - NotFoundPageComponent
 
@@ -64,19 +66,24 @@ MET Museum art app that allows visitors to discover exhibitions and get more inf
   - FavList component (mapped array of favs {image: string, artist: string, date: string, department: string}, button: button, onSubmit: function)
   - PaintingCard component
   - HeartButton component
+- Scan Form:
+ - ScanForm component
 
 ## Services
-- Auth Service
+- **Auth Service
   - auth.login(user)
   - auth.signup(user)
   - auth.logout()
   - auth.me()
   - auth.getUser() // synchronous
-- Paintings service
- - get all()
+- **Paintings Service
+  - get all()
   - fav.list()
   - fav.create({user})
-- fav.delete({user})
+  - fav.delete({user})
+- **Scan Service
+  - scanService.getTextFromImage({imageBase64String}) 
+  - scanService.getPaintingFromTitleScan(paintingTitle)
 
 # Server
 ## Models
@@ -171,18 +178,19 @@ audio - String
 
 
 ## Links
-[The Metropolitan Museum of Art Collection API] (https://metmuseum.github.io/)
-[Google Vision API] (https://cloud.google.com/vision/)
+- **[The Metropolitan Museum of Art Collection API] (https://metmuseum.github.io/)
+- **[Google Vision API] (https://cloud.google.com/vision/)
+- **[React File Base64 Component for Image conversion] (https://github.com/BosNaufal/react-file-base64)
 
 ## Kanban Board
 
 ## GitHub
-[Frontend repo] (https://github.com/MarloMorgan/frame-frontend )
-[Backend repo] (https://github.com/MarloMorgan/frame-backend)
-[Try the deployed app] (https://frame-project-8946c.firebaseapp.com/)
+- **[Frontend repo] (https://github.com/MarloMorgan/frame-frontend )
+- **[Backend repo] (https://github.com/MarloMorgan/frame-backend)
+- **[Try the deployed app] (https://frame-project-8946c.firebaseapp.com/)
 
 ## Slides
-[Google Slides Presentation](https://docs.google.com/presentation/d/1-BbRsB9EjJGMANPDtiqsqX7PpIYiJnE2XuCOiiN72FE/edit?usp=sharing)
+- **[Google Slides Presentation](https://docs.google.com/presentation/d/1-BbRsB9EjJGMANPDtiqsqX7PpIYiJnE2XuCOiiN72FE/edit?usp=sharing)
 
 
 
